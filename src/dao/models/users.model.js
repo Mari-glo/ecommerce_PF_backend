@@ -47,10 +47,10 @@ const userSchema = new Schema(
         },
       },
     ],
-    lastConnection: String,
+    last_connection: Date,
 });
   
 
-
 const userModel = model("user", userSchema);
+
 export { userModel };

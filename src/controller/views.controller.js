@@ -127,7 +127,7 @@ const viewRegister = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { first_name, last_name, age, email, password } = req.body;
+  const { first_name, last_name, age, email, password, role } = req.body;
   try {
     
     const user = await userServices.getUserByEmail(email);

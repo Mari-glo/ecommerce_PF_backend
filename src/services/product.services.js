@@ -1,8 +1,8 @@
 import * as productDao from "../dao/mongo/product.dao.js";
 
 
-const getAllProducts = async (query) => {
-  const { limit = 10, page = 1, sort = "asc", category, status } = query;
+const getAllProducts = async (query={}) => {
+  const { limit, page, sort , category, status,} = query;
 
   const options = {
     limit: limit || 10,
