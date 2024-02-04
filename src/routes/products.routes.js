@@ -6,6 +6,7 @@ import { isAuthorize, isOwnerAuthorized } from "../middlewares/checkUser.js";
 import { checkMongoId } from "../middlewares/checkMongoId.js";
 
 const routerProducts = Router();
+
 routerProducts.get("/mockingporducts", generateMockingProducts);
 
 routerProducts.get("/", getAllProducts);

@@ -1,7 +1,7 @@
 paths:
   /api/carts:
     get:
-      summary: Obtener todos los cartos
+      summary: Obtener todos los carts
       tags:
         - Carts
       responses:

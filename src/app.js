@@ -1,5 +1,5 @@
-import cookieParser from "cookie-parser";
 import express from "express";
+import cookieParser from "cookie-parser";
 import handlebars from "express-handlebars";
 import session from "express-session";
 import passport from "passport";
@@ -19,7 +19,8 @@ const { PORT, COOKIE_SECRET } = config;
 const app = express();
 
 app.engine(
-  "handlebars", handlebars.engine({ runtimeOptions: {
+  "handlebars", handlebars.engine({ 
+    runtimeOptions: {
       allowProtoPropertiesByDefault: true,
       allowProtoMethodsByDefault: true,
     },
@@ -49,7 +50,7 @@ const swaggerOptions = {
     openapi: "3.0.1",
     info: {
       title: "Documentación de la API",
-      description: "Documentación de la API de la aplicación de gestión de productos y carritos de compra",
+      description: "Documentación de la API ; gestión de productos y carritos de compra",
     },
   },
   apis: ["./docs/**/*.yaml"],

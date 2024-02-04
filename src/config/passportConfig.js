@@ -55,9 +55,7 @@ const initializePassport = () => {
       }
     })
   );
-  passport.use(
-    "github",
-    new GitHubStrategy(
+  passport.use( "github", new GitHubStrategy(
       {
         clientID: "Iv1.4040ecaece694a96",
         clientSecret: "361c4082cc4eb305f635d95b8bc28e45e0d90ad8",
@@ -72,7 +70,7 @@ const initializePassport = () => {
               first_name: profile._json.name,
               last_name: "",
               age: 18,
-              email,
+              email:"",
               password: "",
             };
             const result = await userServices.createUser(newUser);

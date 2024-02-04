@@ -14,9 +14,9 @@ const sendOwnerMail = async (owner) => {
     from: "ecommerce Mari",
     to: owner,
     subject: "Producto Eliminado",
-    // Mandamos los datos del ticket en el cuerpo del mail
+    
     html: `
-      <h1>Se eliminó un producto</h1>
+      <h2>Se eliminó un producto</h2>
       
     `,
   });

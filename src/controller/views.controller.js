@@ -20,7 +20,8 @@ const home = async (req, res) => {
 
 const realTimeProducts = async (req, res) => {
   try {
-    res.render("realTimeProducts");
+    const products = await productServices.getAllProducts();
+    res.render("realTimeProducts", { products });  
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
@@ -135,7 +136,7 @@ const registerUser = async (req, res) => {
     }
 
     
-    if (!first_name || !last_name || !age || !email || !password) {
+    if (!first_name || !last_name || !age || !email || !password || !role) {
       return res.render("register", { error: "Debe ingresar todos los datos" });
     }
 
@@ -163,7 +164,7 @@ const registerUser = async (req, res) => {
 
 const viewProfile = async (req, res) => {
   try {
-    const { user } = verifyToken(req.cookies.token);
+    const {user}  = verifyToken(req.cookies.token);
     const products = await productServices.getAllProducts(req.query);
 
     
@@ -208,10 +209,10 @@ const resetPassword = async (req, res) => {
 
     if (!user) return res.render("resetPassword", { error: `El usuario con el mail ${email} no existe` });
 
-    // Generamos un token que expira en 1hs
+    
     const token = generateToken({ email }, "1h");
 
-    // Enviamos el mail con el link para resetear la contraseña
+    
     sendLinkResetPassword(token, email);
 
     res.render("sendMailConfirm", { email });
@@ -312,7 +313,7 @@ const buyCart = async (req, res) => {
 
 const adminUsers = async (req, res) => {
   try {
-    const users = await userServices.getAllUsers();
+    const {users} = await userServices.getAllUsers();
     res.render("adminUsers", { users });
   } catch (error) {
     logger.error(error.message);

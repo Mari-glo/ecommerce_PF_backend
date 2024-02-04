@@ -10,7 +10,7 @@ paths:
           schema:
             type: string
           required: true
-          description: Id del carto
+          description: Id del cart
       responses:
         '200':
           description: OK

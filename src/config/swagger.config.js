@@ -5,7 +5,7 @@ const swaggerOptions = {
     openapi: "3.0.1",
     info: {
       title: "Documentación de la API",
-      description: "Documentación de la API ; gestión de productos y carrito de compra",
+      description: "Documentación de la API; gestión de productos y carrito de compra",
     },
   },
   apis: ["/docs/**/*.yaml"],

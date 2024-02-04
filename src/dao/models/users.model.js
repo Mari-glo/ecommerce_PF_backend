@@ -1,37 +1,56 @@
 import { Schema, model } from "mongoose";
 
-const userSchema = new Schema({
-  first_name: String,
-  last_name: String,
-  email: {
-    type: String,
-    unique: true, // El mail debe ser único
-  },
-  age: Number,
-  password: String,
-  cartId: {
-    type: [
+
+const userSchema = new Schema(
+  {
+    first_name: {
+      type: String,
+      Required: true,
+    },
+    last_name: {
+      type: String,
+    },
+
+    age: Number,
+
+    email: {
+      type: String,
+      Required: true,
+      Unique: true,
+    },
+    password: {
+      type: String,
+    },
+    cartId: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "carts",
+        },
+      ],
+      default: [],
+    },
+    role: {
+      type: String,
+      enum: ["user", "premium", "admin"],
+      default: "user",
+    },
+    documents: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "carts",
+        name: {
+          type: String,
+          default: "",
+        },
+        reference: {
+          type: String,
+          default: "",
+        },
       },
     ],
-    default: [],
-  },
-  role: {
-    type: String,
-    enum: ["user", "admin", "premium"],
-    default: "user",
-  },
-  documents: [
-    {
-      name: String,
-      reference: String,
-    }
-  ],
-  last_connection: Date,
+    lastConnection: String,
 });
+  
+
 
 const userModel = model("user", userSchema);
-
 export { userModel };

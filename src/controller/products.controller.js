@@ -43,7 +43,7 @@ const addProduct = async (req, res) => {
   const body = req.body;
   try {
     const user = req.session.user;
-    // Verificamos si el usuario es premium y si lo es, le asignamos el producto
+    
     if (user.role === "premium") {
       const newProduct = { ...body, owner: user.email };
       const resProducts = await productServices.addProduct(newProduct);
@@ -84,8 +84,7 @@ const deleteProduct = async (req, res) => {
     const product = await productServices.getProductById(id);
     if (!product) return res.status(404).json({ error: "Producto no encontrado" });
     if (product.owner !== req.session.user.email) {
-      // Si el usuario no es el dueño del producto, se le envía un mail al owner del producto
-      // y se le notifica que alguien eliminó su producto
+      
       sendOwnerMail(product.owner);
     }
     await productServices.deleteProduct(id);

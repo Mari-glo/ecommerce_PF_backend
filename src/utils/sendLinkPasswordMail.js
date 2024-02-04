@@ -14,7 +14,7 @@ const sendLinkResetPassword = async (token, email) => {
     from: "ecommerce Mari",
     to: email,
     subject: "Recuperar contraseña",
-    // Mandamos el link para resetear el password en el cuerpo del mail
+    
     html: `
       <h1>Recuperar contraseña</h1>
       <p>Para recuperar tu contraseña haz click en el siguiente link</p>

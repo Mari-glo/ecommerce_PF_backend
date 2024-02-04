@@ -2,7 +2,8 @@ import * as productServices from "../services/product.services.js";
 import { verifyToken } from "../utils/jwt.js";
 
 const isAuthorize = (req, res, next) => {
-  if (!req.user) return res.status(403).json({ error: "No tiene permisos para realizar esta acción" });
+  if (!req.user) 
+    return res.status(403).json({ error: "No tiene permisos para realizar esta acción" });
   if (req.user.role === "admin" || req.user.role === "premium") {
     next();
   } else {

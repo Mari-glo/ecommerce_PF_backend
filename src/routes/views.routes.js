@@ -10,50 +10,41 @@ const routerViews = Router();
 
 routerViews.get("/", home);
 
-routerViews.get("./realtimeproducts", realTimeProducts);
+routerViews.get("/realtimeproducts", realTimeProducts);
 
-routerViews.get("./chat", chat);
+routerViews.get("/chat", chat);
 
-routerViews.get("./products", checkToken, products);
+routerViews.get("/products", checkToken, products);
 
-routerViews.get("./product/:pid", checkToken, productDetail);
+routerViews.get("/product/:pid", checkToken, productDetail);
 
-routerViews.get("./cart/:cid", checkToken, cartDetail);
+routerViews.get("/cart/:cid", checkToken, cartDetail);
 
-routerViews.get("./cart", checkToken, cartDetail);
+routerViews.get("/cart", checkToken, cartDetail);
 
+routerViews.post("/cart/:pid", checkToken, addProductToCart);
+routerViews.post("/cart/buy/:cid", checkToken, buyCart);
 
-// Agregamos un producto al carrito
-routerViews.post("./cart/:pid", checkToken, addProductToCart);
-routerViews.post("./cart/buy/:cid", checkToken, buyCart);
+routerViews.get("/login", viewLogin);
 
+routerViews.post("/login", loginUser);
 
-// Vista de login
-routerViews.get("./login", viewLogin);
+routerViews.get("/register", viewRegister);
 
-routerViews.post("./login", loginUser);
+routerViews.post("/register", registerUser);
 
-// Vista de registro
-routerViews.get("./register", viewRegister);
+routerViews.get("/profile", checkToken, viewProfile);
 
-routerViews.post("./register", registerUser);
+routerViews.get("/logout", checkToken, logoutUser);
 
-// Vista de perfil
-routerViews.get("./profile", checkToken, viewProfile);
+routerViews.get("/resetpassword", viewResetPassword);
+routerViews.post("/resetpassword", resetPassword);
 
-// Cerrar sesión
-routerViews.get("./logout", checkToken, logoutUser);
+routerViews.get("/changepassword/:token", checkResetToken, viewChangePassword);
+routerViews.post("/changepassword", changePassword);
 
-// Vista restaurar contraseña
-routerViews.get("./resetpassword", viewResetPassword);
-routerViews.post("./resetpassword", resetPassword);
+routerViews.get("/adminusers", checkToken, isAdmin, adminUsers);
 
-// Vista cambiar contraseña
-routerViews.get("./changepassword/:token", checkResetToken, viewChangePassword);
-routerViews.post("./changepassword", changePassword);
-
-// Vista de administrador
-routerViews.get("./adminusers", checkToken, isAdmin, adminUsers);
 // Documentación de la API
 // routerViews.get("/docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 

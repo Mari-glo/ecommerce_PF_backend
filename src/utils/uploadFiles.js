@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 
 export const uploaderFiles = multer({ storage: storage }).fields([
   { name: "profile", maxCount: 1 },
-  { name: "documents", maxCount: 8 },
-  { name: "imgProducts", maxCount: 3 },
+  { name: "documents", maxCount: 9 },
+  { name: "imgProducts", maxCount: 5 },
 ]);
 export const uploaderFile = multer({ storage: storage }).single("document");

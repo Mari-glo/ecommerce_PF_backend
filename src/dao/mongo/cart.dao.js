@@ -3,19 +3,19 @@ import * as productService from "../../services/product.services.js";
 import * as ticketService from "../../services/ticket.services.js";
 import { sendTicketMail } from "../../utils/sendTicketMail.js";
 
-// Llamamos todos los Carts
+
 const getAllCarts = async () => {
   const carts = await cartModel.find();
   return carts;
 };
 
-// Llamamos un Cart por su id
+
 const getCartById = async (cid) => {
   const cart = await cartModel.findOne({ _id: cid }).populate("products.product");
   return cart;
 };
 
-// Agregamos un Cart a nuestra base de datos
+
 const addCart = async () => {
   const newCart = {
     products: [],
@@ -24,7 +24,7 @@ const addCart = async () => {
   return cart;
 };
 
-// Agregamos un product al array products de Cart
+
 const addProductToCart = async (cid, pid) => {
   const cart = await getCartById(cid);
   const cartUpdate = await cartModel.findOneAndUpdate(
@@ -75,7 +75,7 @@ const updateCart = async (cid, arrayProducts) => {
   return await getCartById(cid);
 };
 
-// Actualizamos la cantidad del producto en el Cart
+
 const updateProductQuantity = async (cid, pid, quantity) => {
   const cartUpdate = await cartModel.findOneAndUpdate(
     { _id: cid, "products.product": pid },
@@ -86,7 +86,7 @@ const updateProductQuantity = async (cid, pid, quantity) => {
   return cartUpdate;
 };
 
-// Quitamos un producto del Cart si llega a 0 lo quitamos del cart
+
 const removeProductFromCart = async (cid, pid) => {
   
   const cart = await getCartById(cid);
@@ -100,7 +100,7 @@ const removeProductFromCart = async (cid, pid) => {
     { new: true }
   );
 
-  // Si la cantidad del producto es 0 lo eliminamos del carrito
+  
   if (cartUpdate.products.find((product) => product.quantity <= 0)) {
     await cartModel.findOneAndUpdate(
       { _id: cart._id },
@@ -137,12 +137,12 @@ const purchaseCart = async (cid, user) => {
 
   for (const product of cart.products) {
 
-    // Si el stock es mayor a la cantidad de productos que están en el carrito lo almacenamos en un array de productsInStock
+    
     if (product.product.stock > product.quantity) {
       productsInStock.push(product);
-      // Quitamos el producto del carrtio
+      
       await deleteProductFromCart(cid, product.product._id);
-      // Descontamos stock de los productos
+      
       await productService.updateProduct(product.product._id, { stock: product.product.stock - product.quantity });
       await sumTotal(cid);
     } else {
@@ -150,24 +150,24 @@ const purchaseCart = async (cid, user) => {
     }
   };
 
-  // Calcular la suma de los productos que si se pueden comprar
+  
   const total = productsInStock.reduce((acc, product) => {
     return acc + product.product.price * product.quantity;
   }, 0);
 
   if(productsInStock.length === 0) return "No hay suficiente stock para realizar la compra"
 
-  // Generar el ticket
+  
   const ticket = await ticketService.generateTicket({
     purchaser: user.email,
     products: productsInStock,
     amount: total,
   });
 
-  // Actualizar el total del carrito 
+  
   await sumTotal(cid);
 
-  // Enviamos por mail el ticket de compra al usuario
+  
   sendTicketMail(ticket);
 
   return ticket;
@@ -175,7 +175,7 @@ const purchaseCart = async (cid, user) => {
 };
 
 
-// Sumamos el total de los productos del Cart y lo almacenamos en el carrito
+
 const sumTotal = async (cid) => {
   const cart = await getCartById(cid);
 
@@ -183,21 +183,11 @@ const sumTotal = async (cid) => {
     return acc + product.product.price * product.quantity;
   }, 0);
 
-  // seteamos el total del carrito
+  
   await cartModel.findOneAndUpdate({ _id: cid }, { $set: { total } });
 
   return total;
 };
 
-export {
-  getAllCarts,
-  getCartById,
-  addCart,
-  addProductToCart,
-  deleteCart,
-  removeAllProductsFromCart,
-  updateCart,
-  updateProductQuantity,
-  removeProductFromCart,
-  purchaseCart,
-};
+export { getAllCarts, getCartById, addCart, addProductToCart, deleteCart, removeAllProductsFromCart,
+  updateCart, updateProductQuantity, removeProductFromCart, purchaseCart, };
