@@ -1,14 +1,20 @@
 
+<div>BIENVENIDOS A MI TIENDA ONLINE {{isLogin}}</div>
+{{!-- Mostramos los productos con una cad de bootstrap --}}
+
+<div>
+ 
+
 <h2>Productos</h2>
 <div class="d-flex flex-row flex-wrap container">
   {{#each products}}
-    <div class="border-1 border m-1 p-2">
-      <h4 class="">{{title}}</h4>
-      <img src={{thumbnail}} alt="">
-      <p>{{description}}</p>
-      <p>{{price}}</p>
+    <div class="border-1 border m-1 p-2 w-25 ">
+      <h5 class="card-title">{{title}}</h5>
+      <img class="w-100 h-50" src={{thumbnail}} class="card-img-top" alt="imagen del producto">
+      <p class="card-text">{{description}}</p>
+      <p class="card-text">{{price}}</p>
       <a href="/product/{{_id}}">
-      <button>Detalles</button>
+      <button class="btn btn-primary">Detalles</button>
       </a>
     </div>
   {{/each}}

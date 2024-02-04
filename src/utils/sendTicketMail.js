@@ -20,7 +20,7 @@ const sendTicketMail = async (ticket) => {
       <p>Gracias por tu compra</p>
       <p>Este es tu ticket de compra</p>
       <p>Código: ${ticket.code}</p>
-      <p>Fecha: ${ticket.purchase_datetime}</p>
+      <p>Fecha: ${ticket.purchaseDateTime}</p>
       <p>Total: ${ticket.amount}</p>
     `,
   });

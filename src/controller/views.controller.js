@@ -102,6 +102,12 @@ const loginUser = async (req, res) => {
 
     if (!user || !isValidPassword(user, password))
       return res.render("login", { error: "Usuario o contraseña incorrectos" });
+      const newCart = await cartService.addCart() 
+      
+          user.cart = newCart;
+      
+          
+          await user.save();
 
     const userToken = userDTO(user);
 
@@ -110,7 +116,7 @@ const loginUser = async (req, res) => {
     res.cookie("token", token, { maxAge: 3600000, httpOnly: true });
 
     
-    return res.redirect("/profile");
+    return res.redirect("/products");
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
@@ -222,25 +228,25 @@ const resetPassword = async (req, res) => {
   }
 };
 
-const viewChangePassword = async (req, res) => {
+const viewChangePass = async (req, res) => {
   try {
-    res.render("changePassword");
+    res.render("changePass");
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
   }
 };
 
-const changePassword = async (req, res) => {
+const changePass = async (req, res) => {
   const { password1, password2 } = req.body;
   try {
-    if (password1 !== password2) return res.render("changePassword", { error: "Las contraseñas no coinciden" });
+    if (password1 !== password2) return res.render("changePass", { error: "Las contraseñas no coinciden" });
 
     const email = req.cookies.token.user.email;
     const user = await userServices.getUserByEmail(email);
-    if (!user) return res.render("changePassword", { error: `El usuario con el mail ${email} no existe` });
+    if (!user) return res.render("changePass", { error: `El usuario con el mail ${email} no existe` });
     await user.updateOne({ password: createHash(password1) });
-    res.render("changePasswordConfirm", { msg: "Contraseña cambiada con éxito" });
+    res.render("changePassConfirm", { msg: "Contraseña cambiada con éxito" });
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
@@ -311,10 +317,10 @@ const buyCart = async (req, res) => {
   }
 };
 
-const adminUsers = async (req, res) => {
+const admin = async (req, res) => {
   try {
     const {users} = await userServices.getAllUsers();
-    res.render("adminUsers", { users });
+    res.render("admin", { users });
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
@@ -323,4 +329,4 @@ const adminUsers = async (req, res) => {
 
 export { home, realTimeProducts, chat, products, productDetail, cartDetail, viewLogin, loginUser,
   viewRegister, registerUser, viewProfile, logoutUser, viewResetPassword, resetPassword, generateTicket,
-  getTicketFromEmail, changePassword, viewChangePassword, addProductToCart, buyCart, adminUsers };
+  getTicketFromEmail, changePass, viewChangePass, addProductToCart, buyCart, admin };

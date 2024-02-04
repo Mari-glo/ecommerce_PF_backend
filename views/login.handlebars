@@ -6,16 +6,16 @@
   <form action="/login" method="POST">
     <div>
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" placeholder="Email" required />
+      <input type="email" name="email" id="email" placeholder="ingrese su email" required />
     </div>
     <div>
       <label for="password">Password</label>
-      <input type="password" name="password" id="password" placeholder="Password" required />
+      <input type="password" name="password" id="password" placeholder="ingrese su contraseña" required />
     </div>
-    <button type="submit">Login</button>
+    <button class="btn btn-danger">Enviar</button>
   </form>
   <form action="/api/sessions/github" method="get">
-    <button type="submit">Login con GitHub</button>
+    <button class="btn btn-dark" ><i class="bi bi-github">  entrar con github</i></button>  </a>
   </form>
 
   {{! Si hay un error en el login mostramos el mensaje que nos envía el servidor }}
@@ -30,3 +30,4 @@
   <a href="/register">Regístrate</a>
 
 </div>
+

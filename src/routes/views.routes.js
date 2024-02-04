@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { cartDetail, changePassword, chat, home, loginUser, logoutUser, productDetail, products, realTimeProducts,
-  registerUser, resetPassword, viewChangePassword, viewLogin, viewProfile, viewRegister, viewResetPassword, addProductToCart,
-  buyCart, adminUsers } from "../controller/views.controller.js";
+import { cartDetail, changePass, chat, home, loginUser, logoutUser, productDetail, products, realTimeProducts,
+  registerUser, resetPassword, viewChangePass, viewLogin, viewProfile, viewRegister, viewResetPassword, addProductToCart,
+  buyCart, admin } from "../controller/views.controller.js";
 import { checkResetToken } from "../middlewares/checkResetToken.js";
 import { checkToken } from "../middlewares/checkToken.js";
 import { isAdmin } from "../middlewares/checkUser.js";
@@ -40,10 +40,10 @@ routerViews.get("/logout", checkToken, logoutUser);
 routerViews.get("/resetpassword", viewResetPassword);
 routerViews.post("/resetpassword", resetPassword);
 
-routerViews.get("/changepassword/:token", checkResetToken, viewChangePassword);
-routerViews.post("/changepassword", changePassword);
+routerViews.get("/changePass/:token", checkResetToken, viewChangePass);
+routerViews.post("/changePass", changePass);
 
-routerViews.get("/adminusers", checkToken, isAdmin, adminUsers);
+routerViews.get("/admin", checkToken, isAdmin, admin);
 
 // Documentación de la API
 // routerViews.get("/docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));

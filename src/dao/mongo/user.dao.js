@@ -20,7 +20,7 @@ const getUserById = async (id) => {
   return user;
 };
 
-const changePassword = async (email, newPassword) => {
+const changePass = async (email, newPassword) => {
   await userModel.findOneAndUpdate({ email: email }, { password: newPassword });
 };
 
@@ -77,5 +77,5 @@ const deleteUsers = async () => {
   return users;
 };
 
-export { createUser, getUserByEmail, getUserById, changePassword, changeRole, getAllUsers,
+export { createUser, getUserByEmail, getUserById, changePass, changeRole, getAllUsers,
   deleteUser, addLastConnection, addFiles, deleteUsers, };

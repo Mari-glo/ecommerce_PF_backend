@@ -18,7 +18,7 @@ const sendLinkResetPassword = async (token, email) => {
     html: `
       <h1>Recuperar contraseña</h1>
       <p>Para recuperar tu contraseña haz click en el siguiente link</p>
-      <a href="http://localhost:8080/changepassword/${token}">Recuperar contraseña</a>
+      <a href="http://localhost:8080/changepass/${token}">Recuperar contraseña</a>
     `,
   });
 

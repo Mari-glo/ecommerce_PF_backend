@@ -20,8 +20,8 @@ const getUserById = async (id) => {
   return user;
 };
 
-const changePassword = async (email, newPassword) => {
-  await userDao.changePassword(email, newPassword);
+const changePass = async (email, newPassword) => {
+  await userDao.changePass(email, newPassword);
 };
 
 const changeRole = async (email) => {
@@ -47,5 +47,5 @@ const deleteUsers = async () => {
   await userDao.deleteUsers();
 };
 
-export { createUser, getUserByEmail, getUserById, changePassword, changeRole, getAllUsers,
+export { createUser, getUserByEmail, getUserById, changePass, changeRole, getAllUsers,
   deleteUser, addLastConnection, addFiles, deleteUsers, };
