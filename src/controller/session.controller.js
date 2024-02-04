@@ -1,0 +1,58 @@
+import { userDTO } from "../DTOs/user.dto.js";
+import { logger } from "../utils/logger.js";
+import * as userServices from "../services/user.services.js";
+const login = async (req, res) => {
+  try {
+   
+    if (!req.user) return res.status(400).send({ status: "error", message: "Error credenciales inválidas" });
+
+    req.session.user = userDTO(req.user);
+    
+
+    await userServices.addLastConnection(req.user._id, new Date());
+
+    res.send({ status: "success", payload: req.session.user });
+  } catch (error) {
+    logger.error(error.message);
+    res.status(500).json({ error: "Server internal error" });
+  }
+};
+
+const logout = async (req, res) => {
+  try {
+
+    await userServices.addLastConnection(req.session.user._id, new Date());
+    
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ error: "Error al cerrar sesión" });
+      }
+      
+      res.json({ message: "Sesión cerrada" });
+    });
+  } catch (error) {
+    logger.error(error.message);
+    res.status(500).json({ error: "Server internal error" });
+  }
+};
+
+const current = async (req, res) => {
+  try {
+    res.send({ status: "success", payload: req.session.user });
+  } catch (error) {
+    logger.error(error.message);
+    res.status(500).json({ error: "Server internal error" });
+  }
+};
+
+const github = async (req, res) => {
+  try {
+    req.session.user = userDTO(req.user);
+    res.redirect("/profile");
+  } catch (error) {
+    logger.error(error.message);
+    res.status(500).json({ error: "Server internal error" });
+  }
+};
+
+export { login, logout, current, github };

@@ -1,0 +1,401 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    background-color: rgb(223, 223, 223);
+  }
+  
+  a {
+    color: rgb(20, 20, 20);
+    text-decoration: none;
+  }
+  
+  header {
+    width: 100%;
+  
+    padding: 1rem;
+  }
+  
+  
+  nav {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  input {
+    padding: 5px 10px;
+    border: 2px solid rgb(20, 20, 20);
+    border-radius: 20px;
+  }
+  
+  
+  .linkContainer {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  
+  .navLink {
+    font-weight: 500;
+    color: #463f17;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .cartLinkContainer {
+    display: inline;
+    background-color: #c78100;
+    padding: 3px;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    text-align: center;
+  }
+  
+  .productsTitlePage {
+    width: 100%;
+    color: #c78100;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .productsContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 225px);
+    grid-template-rows: auto;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .productCard {
+    width: 100%;
+    height: 400px;
+    background-color: #ffff;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.156);
+  }
+  
+  .productImg {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+  }
+  
+  .productCategory {
+    width: fit-content;
+    background-color: #c78100;
+    color: white;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+  
+  .productTitle {
+    font-weight: bold;
+  }
+  
+  .cardSection {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .productPrice {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .productButton {
+    width: 100%;
+    background-color: #c78100;
+    color: white;
+    padding: 8px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .productsPaginate {
+    width: 100%;
+    padding: 5px 0;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .paginateLeftArrow {
+    color: #c78100;
+    font-size:15px;
+    margin-bottom: 5px;
+  }
+  
+  .paginateIndexContainer {
+    background-color: #ffff;
+    color: rgb(20, 20, 20);
+    padding: 5px 10px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .paginateRightArrow {
+    color: #c78100;
+    font-size: 15px;
+  
+    margin-bottom: 5px;
+  }
+  
+  .chat {
+    height: 80%;
+    max-width: 500px;
+    margin: 20 auto;
+  }
+  
+  .messageContainer {
+    width: 100%;
+    display: grid;
+    padding: 5px 0;
+    border-bottom: 2px solid rgb(20, 20, 20);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .message {
+    max-width: 350px;
+    word-wrap: break-word;
+  }
+  
+  .time {
+    margin: 0 auto;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .inputContainer {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .inputMessage {
+    width: 100%;
+    padding: 5px;
+  }
+  
+  .cartTitlePage {
+    color: #c78100;
+    padding: 10px ;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .cartProductsContainer {
+    max-width: 1024px;
+    min-height: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  .cartProduct {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 14px;
+  }
+  
+  .cartProductImg {
+    width: 75px;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+  
+  .cartSection {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .cartProductPrice {
+    text-align: center;
+  }
+  
+  .cartProductQuantity {
+    text-align: center;
+  }
+  
+  .loginDiv {
+    width: 400PX;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loginTitle {
+    width: 50%;
+    background-color: #c78100;
+    font-size: large;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 20px 0;
+    text-align: center;
+    padding: 5px 0;
+  }
+  
+  .loginForm {
+    width: 100%;
+    background-color: #ffff;
+    color: rgb(20, 20, 20);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .recoverButton {
+    margin-top: -10px;
+    font-size: 12px;
+    background-color: #c78100;
+    color: white;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .loginButton {
+    background-color: #c78100;
+    color: #ffff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  /* 
+  .registerSection {
+    max-width: 500px;
+    height: fit-content;
+    padding: 40px 20px;
+    margin: 20px auto;
+    background-color: rgb(20, 20, 20);
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+  } */
+  
+  .registerDiv {
+    width: 400PX;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .registerTitle {
+    width: 25%;
+    background-color: #c78100;
+    font-size: large;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 20px 0;
+    text-align: center;
+    padding: 5px 0;
+  }
+  
+  .registerForm {
+    width: 80%;
+    background-color: #ffff;
+    color: rgb(20, 20, 20);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  
+  
+  .registerButton {
+    background-color: #c78100;
+    color: #ffff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .usersList {
+    margin: 10px;
+    padding: 4px;
+    background-color: #94defc;
+  }
+  
+  .buyButton {
+    width: 100px;
+    background-color: #c78100;
+    color: white;
+    padding: 8px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    
+  }
+  
+  
+  footer {
+    width: 100%;
+    background-color: #c78100;
+    color: white;
+    padding: 10px 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }

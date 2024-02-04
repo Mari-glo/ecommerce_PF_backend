@@ -1,0 +1,26 @@
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{this.first_name}}</td>
+                <td>{{this.last_name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.role}}</td>
+                <td>
+                    <form onsubmit="return confirmDelete();" action="/api/users/{{id}}" method="DELETE">
+                        <input type="hidden" name="" value="">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <script>
+        function confirmDelete() {
+            // Preguntar al usuario si está seguro de eliminar
+            const confirmResult = confirm("¿Estás seguro que deseas eliminar este usuario?");
+        }
+    </script>
+</div>

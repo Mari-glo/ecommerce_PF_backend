@@ -1,0 +1,42 @@
+   <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container">
+        <a class="navbar-brand text-white" href="../products">Ecommerce</a>
+        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-4 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="../products">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../admin">Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../products">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../chat">Chats</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../profile">Perfil</a>
+                </li>
+            </ul>
+            
+            <div class="container btn me-auto">
+                <a class="nav-link text-white btn mr-2" href="../register">Registro</a>
+                <a class="nav-link text-white btn mr-2" href="../login">Login</a>
+            </div>
+
+            <div class="container">
+                <form action="../logout" method="get" class="d-flex">
+                    <button type="submit" class="btn btn-primary">Cerrar Sesión</button>
+                </form>
+            </div>
+            
+            <a href="../cart" style="text-decoration: none;">
+                <span class="navbar-text text-white" style="vertical-align: inherit; font-size: xx-large;">🛒</span>
+            </a>
+        </div>
+    </div>
+</nav>
