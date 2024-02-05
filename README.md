@@ -49,3 +49,10 @@ npm run dev
 http://localhost:8080/docs/products
 
 http://localhost:8080/docs/carts
+
+## Nota1: 
+Para realizar este proyecto trabajé en grupo colavorativo con mis compañeras Maite Esteves y Silvia Vergara
+
+## Nota2: 
+para que funcione la app primero hay que logearse
+http://localhost:8080/login

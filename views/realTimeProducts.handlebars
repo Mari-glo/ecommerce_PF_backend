@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>solo primium</title>
   </head>
   <body>
+    <div class="container">
     <form id="productForm" class="d-flex flex-column col-4 ms-3">
       <label for="">Título</label>
       <input type="text" name="title" id="title" />
@@ -26,17 +27,18 @@
       <input type="text" id="code" name="code" />
       <label for="">Categoría</label>
       <input type="text" id="category" name="category" />
-      <button type="submit" class="btn btn-primary">Agregar</button>
+      <button type="submit" class="btn btn-info">Agregar</button>
     </form>
     <form action="" class="ms-3 mt-3" id="formDelete">
       <label for="">ID producto a eliminar</label>
       <input type="text" name="id" id="id" />
-      <button type="submit" class="btn btn-danger">Eliminar</button>
+      <button type="submit" class="btn btn-warning">Eliminar</button>
     </form>
 
     <div id="productsContainer" class="row"></div>
 
     <script src="/socket.io/socket.io.js"></script>
+    </div>
     
   </body>
 </html>

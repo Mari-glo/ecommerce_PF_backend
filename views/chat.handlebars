@@ -5,20 +5,23 @@
     <title>chat</title>
   </head>
   <body>
+    <div class="container">
+    <h2>¿tienes dudas? Chatea con nosotros</h2>
 
     <form id="chatForm" class="m-3 col-3">
       <label>Email</label>
       <input class="form-control" id="user" name="user" type="text" />
       <label>Message</label>
       <textarea class="form-control" id="message" name="message" type="text"> </textarea>
-      <input class="btn btn-primary mt-2" id="btn" type="submit" value="Enviar" />
+      <input class="btn btn-info mt-2" id="btn" type="submit" value="Enviar" />
     </form>
 
-    <h4>Mensajes de chat</h4>
+    <h4>Mensajes enviados</h4>
     <div id="chatMessages">
 
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/chat.js"></script>
+    </div>
   </body>
 </html>

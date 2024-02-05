@@ -4,16 +4,18 @@
   <h2>Login</h2>
 
   <form action="/login" method="POST">
-    <div>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" placeholder="ingrese su email" required />
+    <div class="mb-4">
+      <label for="email" class="form-label">Email</label>
+      <input  type="email" class="form-control" name="email" id="email" placeholder="ingrese su email" required />
+      <div id="emailHelp" class="form-text">No compartiremos su email ni sus datos.</div>
     </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" placeholder="ingrese su contraseña" required />
-    </div>
-    <button class="btn btn-danger">Enviar</button>
+    <div class="mb-4">
+      <label for="password" class="form-label">Password</label>
+      <input type="password"  class="form-control" name="password" id="password" placeholder="ingrese su contraseña" required />
+    </div class="mb-4">
+    <button class="btn btn-info">Enviar</button>
   </form>
+  <br>
   <form action="/api/sessions/github" method="get">
     <button class="btn btn-dark" ><i class="bi bi-github">  entrar con github</i></button>  </a>
   </form>
@@ -26,8 +28,8 @@
   <p>Restaurar contraseña <span><a href="/resetpassword">aquí</a></span></p>
   
 
-  <p>¿No tienes cuenta?</p>
-  <a href="/register">Regístrate</a>
+  <h3>¿No tienes cuenta?</h3>
+  <a type="button" class="btn btn-warning"  href="/register">Regístrate</a>
 
 </div>
 

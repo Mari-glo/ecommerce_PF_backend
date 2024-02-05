@@ -1,4 +1,6 @@
 
+<div class="container">
+    
 <div>BIENVENIDOS A MI TIENDA ONLINE {{isLogin}}</div>
 {{!-- Mostramos los productos con una cad de bootstrap --}}
 
@@ -6,17 +8,19 @@
  
 
 <h2>Productos</h2>
-<div class="d-flex flex-row flex-wrap container">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  
   {{#each products}}
-    <div class="border-1 border m-1 p-2 w-25 ">
-      <h5 class="card-title">{{title}}</h5>
+    <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+      <div class="col">
       <img class="w-100 h-50" src={{thumbnail}} class="card-img-top" alt="imagen del producto">
+      <h4 class="card-title">{{this.title}}</h4>
       <p class="card-text">{{description}}</p>
       <p class="card-text">{{price}}</p>
       <a href="/product/{{_id}}">
-      <button class="btn btn-info">Detalles</button>
+      <button class="btn btn-info"><i class="bi bi-suit-heart-fill"></i>Detalles</button></i>
       </a>
-    </div>
+    </div></div>
   {{/each}}
 </div>
 <div class="container d-flex "> 
@@ -32,4 +36,4 @@
       <button class="btn btn-info">Siguiente</button>
     </a>
   {{/if}}
-</div>
+</div></div>
