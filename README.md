@@ -44,3 +44,8 @@ https://github.com/Mari-glo/ecommerce_PF_backend.git
 ## Comandos de Ejecución
 
 npm run dev
+
+## swagger
+http://localhost:8080/docs/products
+
+http://localhost:8080/docs/carts

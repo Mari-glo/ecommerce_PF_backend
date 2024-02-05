@@ -3,7 +3,11 @@
   <p>Título: {{title}}</p>
   <p>Descripción: {{description}}</p>
   <p>Precio: {{price}}</p>
+  <img class="w-80 h-40" src={{thumbnail}} class="card-img-top" alt="imagen del producto"> 
+  <br><br>
   <form action="/cart/{{_id}}" method="post">
-    <input type="submit" value="Comprar">
+    <input class="btn btn-dark" type="submit" value="Comprar">
+    <button class="btn btn-info text-white"><a href="/products">volver</button></a>
+
   </form>
 </div>

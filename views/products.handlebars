@@ -14,7 +14,7 @@
       <p class="card-text">{{description}}</p>
       <p class="card-text">{{price}}</p>
       <a href="/product/{{_id}}">
-      <button class="btn btn-primary">Detalles</button>
+      <button class="btn btn-info">Detalles</button>
       </a>
     </div>
   {{/each}}
@@ -23,13 +23,13 @@
   {{! Indicamos que los botones aparezcan mientras prevPage y nextPage no sean null }}
   {{#if prevPage}}
     <a href={{prevLink}}>
-      <button>Anterior</button>
+      <button class="btn btn-info">Anterior</button>
     </a>
   {{/if}}
   <p class="mx-2 ">Page {{this.page}}</p>
   {{#if nextPage}}
     <a href={{nextLink}}>
-      <button>Siguiente</button>
+      <button class="btn btn-info">Siguiente</button>
     </a>
   {{/if}}
 </div>
