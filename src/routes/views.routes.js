@@ -8,7 +8,7 @@ import { isAdmin } from "../middlewares/checkUser.js";
 
 const routerViews = Router();
 
-routerViews.get("/");
+routerViews.get("/home", home);
 
 routerViews.get("/realtimeproducts", realTimeProducts);
 

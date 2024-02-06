@@ -1,35 +1,47 @@
 
     <div class="container">
       <h2>Para agregar productos debes ser usuario premium</h2>
-    <form id="productForm" class="d-flex flex-column col-4 ms-3">
-      <label for="">Título</label>
-      <input type="text" name="title" id="title" />
-      <label for="">Precio</label>
-      <input type="number" name="price" id="price" />
-      <label for="">Descripción</label>
-      <input type="text" name="description" id="description" />
-      <label for="">Imagen</label>
-      <input type="text" name="thumbnail" id="thumbnail" />
-      <label for="">Status</label>
-      <select name="status" id="status">
-        <option value="true">Disponible</option>
-        <option value="false">No disponible</option>
-      </select>
-      <label for="">Stock</label>
-      <input type="number" name="stock" id="stock" />
-      <label for="">Código</label>
-      <input type="text" id="code" name="code" />
-      <label for="">Categoría</label>
-      <input type="text" id="category" name="category" />
-      <button type="submit" class="btn btn-info">Agregar</button>
-    </form>
-    <form action="" class="ms-3 mt-3" id="formDelete">
-      <label for="">ID producto a eliminar</label>
-      <input type="text" name="id" id="id" />
-      <button type="submit" class="btn btn-warning">Eliminar</button>
-    </form>
+    <form id="productForm" class="d-flex flex-column col-5" action="/api/products" method="post">
+            <label for="" class="form-label">Título</label>
+            <input type="text" class="form-control" name="title" id="title" />
 
-    <div id="productsContainer" class="row"></div>
+            <label for="" class="form-label">Precio</label>
+            <input type="number" class="form-control" name="price" id="price" />
+
+            <label for="" class="form-label">Descripción</label>
+            <input type="text" class="form-control" name="description" id="description" />
+
+            <label for="" class="form-label">Imagen</label>
+            <input type="texto" accept=""  class="form-control" name="thumbnail" id="thumbnail" />
+
+            <label for="" class="form-label">Status</label>
+            <select name="status" class="form-control" id="status">
+                <option value="true">Disponible</option>
+                <option value="false">No disponible</option>
+            </select>
+
+            <label for="" class="form-label">Stock</label>
+            <input type="number" class="form-control" name="stock" id="stock" />
+
+            <label for="" class="form-label">Código</label>
+            <input type="text" class="form-control" id="code" name="code" />
+
+            <label for="">Categoría</label>
+            <input type="text" class="form-control" id="category" name="category" />
+
+            <button type="submit" class="btn btn-info">Agregar</button>
+        </form>
+
+        
+        <form action="" class="ms-3 mt-3 d-flex flex-column col-5" id="formDelete">
+            <label for="" class="form-label">ID producto a eliminar</label>
+            <input type="text" name="id" id="id" />
+            <button type="submit" class="btn btn-warning">Eliminar</button>
+        </form>
+
+
+
+        <div id="productsContainer" class="row"></div>
 
     <script src="/socket.io/socket.io.js"></script>
     </div>

@@ -21,7 +21,7 @@ const home = async (req, res) => {
 const realTimeProducts = async (req, res) => {
   try {
     const products = await productServices.getAllProducts();
-    res.render("realTimeProducts", { products });  // Pasa los productos a la vista
+    res.render("realTimeProducts", { products });  
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
@@ -104,13 +104,11 @@ const loginUser = async (req, res) => {
     if (!user || !isValidPassword(user, password))
       return res.render("login", { error: "Usuario o contraseña incorrectos" });
 
-    // Crear un carrito para el usuario (puedes ajustar esto según tus necesidades)
-    const newCart = await cartService.addCart() // Supongamos que tienes una función para crear un carrito vacío
+    
+    const newCart = await cartService.addCart() 
 
-    // Asignar el carrito al usuario
     user.cart = newCart;
 
-    // Guardar los cambios en la base de datos
     await user.save();
 
     const userToken = userDTO(user);
@@ -120,7 +118,6 @@ const loginUser = async (req, res) => {
 
     res.cookie("token", token, { maxAge: 3600000, httpOnly: true });
 
-    // Redireccionamos al Pagina de Inicio
     return res.redirect("/products");
   } catch (error) {
     logger.error(error.message);
@@ -226,7 +223,7 @@ const resetPassword = async (req, res) => {
     // Enviamos el mail con el link para resetear la contraseña
     sendLinkResetPassword(token, email);
 
-    res.render("sendEmail", { email });
+    res.render("sendMailConfirm", { email });
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
