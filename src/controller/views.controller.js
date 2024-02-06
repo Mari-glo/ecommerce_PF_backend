@@ -11,7 +11,7 @@ import { userDTO } from "../DTOs/user.dto.js";
 const home = async (req, res) => {
   try {
     
-    res.render("login", { user });
+    res.render("home", {user});
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });
@@ -142,7 +142,7 @@ const registerUser = async (req, res) => {
     }
 
     
-    if (!first_name || !last_name || !age || !email || !password || !role) {
+    if (!first_name || !last_name || !age || !email || !password ) {
       return res.render("register", { error: "Debe ingresar todos los datos" });
     }
 
@@ -161,7 +161,7 @@ const registerUser = async (req, res) => {
     await userServices.createUser(newUser);
 
     // Devolvemos el usuario creado
-    return res.redirect("/login");
+    return res.redirect("/products");
   } catch (error) {
     logger.error(error.message);
     res.status(500).json({ error: "Server internal error" });

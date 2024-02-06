@@ -3,20 +3,21 @@
   
   <form action="/changePass" method="post">
     <div>
-      <label for="">Contraseña</label>
-      <input type="password" name="password1" id="password1" required />
+      <label for=""class="form-label">Contraseña</label>
+      <input type="password" class="form-control" name="password1" id="password1" required />
     </div>
   <form action="" method="post">
     <div>
-      <label for="">Confirmar contraseña</label>
-      <input type="password" name="password2" id="password2" required />
+      <label for=""class="form-label">Confirmar contraseña</label>
+      <input type="password" class="form-control" name="password2" id="password2" required />
     </div>
-    <input type="submit" value="Enviar" />
+    <input class="btn btn-warning" type="submit" value="Enviar" />
   </form>
+  <br>
 
   {{#if error}}
     <p>{{error}}</p>
   {{/if}}
 
-  <a href="/login">Iniciar sesión</a>
+  <a type= "button" class="btn btn-info" href="/login">Iniciar sesión</a>
 </div>
